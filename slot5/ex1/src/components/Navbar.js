@@ -3,27 +3,33 @@ import { Navbar, Nav, Button, Container } from "react-bootstrap";
 
 function AppNavbar() {
   return (
-    <Navbar bg="light" expand="lg" className="shadow-sm">
-      <Container>
-        <Navbar.Brand href="#home">
+    <Navbar bg="light" expand="lg" className="shadow-sm justify-content-center">
+      <Container className="justify-content-center">
+        <Navbar.Brand href="#home" className="d-flex align-items-center">
           <img
             src="/logo192.png"
-            alt="Logo"
             width="30"
             height="30"
             className="d-inline-block align-top me-2"
+            alt="Logo"
           />
           Healthy Recipe Finder
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
-            <Nav.Link href="#recipes">Recipes</Nav.Link>
+        <Navbar.Collapse
+          id="basic-navbar-nav"
+          className="justify-content-center"
+        >
+          <Nav>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/">About</Nav.Link>
+            <Nav.Link href="/">Recipes</Nav.Link>
+            <Nav.Link href="/request">Recipe Request Form</Nav.Link>
           </Nav>
-          <Button variant="success">Browse recipes</Button>
         </Navbar.Collapse>
+        <Button variant="success" className="ms-3">
+          Browse recipes
+        </Button>
       </Container>
     </Navbar>
   );
