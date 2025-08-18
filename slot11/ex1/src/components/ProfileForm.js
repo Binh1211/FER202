@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function ProfileForm({ initialName, initialEmail, initialAge }) {
-  const [name, setName] = useState(initialName);
-  const [email, setEmail] = useState(initialEmail);
-  const [age, setAge] = useState(initialAge);
+  const [name, setName] = useState(initialName || "");
+  const [email, setEmail] = useState(initialEmail || "");
+  const [age, setAge] = useState(initialAge || "");
   const [errors, setErrors] = useState({});
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
@@ -61,6 +61,14 @@ function ProfileForm({ initialName, initialEmail, initialAge }) {
     return () => clearTimeout(timer);
   }, [showToast]);
 
+  const isFormValid =
+    name.trim().length > 0 &&
+    email &&
+    email.includes("@") &&
+    age &&
+    !isNaN(age) &&
+    Number(age) >= 1;
+
   return (
     <>
       <Container>
@@ -108,7 +116,12 @@ function ProfileForm({ initialName, initialEmail, initialAge }) {
             </Form.Control.Feedback>
           </Form.Group>
 
-          <Button variant="primary" type="submit" className="mt-3">
+          <Button
+            variant="primary"
+            type="submit"
+            className="mt-3"
+            disabled={!isFormValid}
+          >
             Submit
           </Button>
         </Form>
