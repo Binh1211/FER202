@@ -1,7 +1,6 @@
 import { Button, Form, Container, Modal, Card } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 function ProfileForm({ initialName, initialEmail, initialAge }) {
   const [name, setName] = useState(initialName || "");
@@ -79,7 +78,7 @@ function ProfileForm({ initialName, initialEmail, initialAge }) {
   return (
     <>
       <Container>
-        <h1>Profile Form</h1>
+        <h1 className="text-center">Profile Form</h1>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formName">
             <Form.Label>Tên</Form.Label>
@@ -125,15 +124,11 @@ function ProfileForm({ initialName, initialEmail, initialAge }) {
               {errors.age}
             </Form.Control.Feedback>
           </Form.Group>
-
-          <Button
-            variant="primary"
-            type="submit"
-            className="mt-3"
-            disabled={!isFormValid}
-          >
-            Submit
-          </Button>
+          <div className="d-flex justify-content-center mt-3">
+            <Button variant="primary" type="submit" disabled={!isFormValid}>
+              Submit
+            </Button>
+          </div>
         </Form>
       </Container>
 
