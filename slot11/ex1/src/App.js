@@ -1,13 +1,12 @@
-import './App.css';
-import ProfileForm from './components/ProfileForm';
+import "./App.css";
+import ProfileForm from "./components/ProfileForm";
 
 function App() {
   return (
     <>
-    <ProfileForm />
+      <ProfileForm initialName="" initialEmail="" initialAge="" />
     </>
   );
 }
 
 export default App;
-
