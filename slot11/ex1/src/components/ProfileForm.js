@@ -44,13 +44,15 @@ function ProfileForm({ initialName, initialEmail, initialAge }) {
     }
   };
 
+  useEffect(() => {
+    handleValidation();
+  }, [name, email, age]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (handleValidation()) {
-      setToastMessage("Submitted successfully!");
-      setShowToast(true);
-      setShowModal(true);
-    }
+    setToastMessage("Submitted successfully!");
+    setShowToast(true);
+    setShowModal(true);
   };
 
   useEffect(() => {
