@@ -8,24 +8,33 @@ function ProfileForm({ initialName, initialEmail, initialAge }) {
   const [email, setEmail] = useState(initialEmail || "");
   const [age, setAge] = useState(initialAge || "");
   const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({
+    name: false,
+    email: false,
+    age: false,
+  });
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [showModal, setShowModal] = useState(false);
 
   const handleValidation = () => {
     const newErrors = {};
-    if (!name || name.trim().length === 0) {
+    if (touched.name && (!name || name.trim().length === 0)) {
       newErrors.name = "Tên không được để trống!";
     }
-    if (!age || isNaN(age) || age < 1) {
+    if (touched.age && (!age || isNaN(age) || Number(age) < 1)) {
       newErrors.age = "Tuổi phải là một số hợp lệ (tối thiểu 1)!";
     }
-    if (!email.includes("@")) {
+    if (touched.email && (!email || !email.includes("@"))) {
       newErrors.email = "Email không hợp lệ!";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+
+  useEffect(() => {
+    handleValidation();
+  }, [name, email, age, touched]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,24 +53,20 @@ function ProfileForm({ initialName, initialEmail, initialAge }) {
     }
   };
 
-  useEffect(() => {
-    handleValidation();
-  }, [name, email, age]);
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    setTouched((prev) => ({ ...prev, [name]: true }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setTouched({ name: true, email: true, age: true });
+    if (!handleValidation()) return;
     setToastMessage("Submitted successfully!");
-    setShowToast(true);
     setShowModal(true);
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 2000);
   };
-
-  useEffect(() => {
-    let timer;
-    if (showToast) {
-      timer = setTimeout(() => setShowToast(false), 3000);
-    }
-    return () => clearTimeout(timer);
-  }, [showToast]);
 
   const isFormValid =
     name.trim().length > 0 &&
@@ -83,7 +88,8 @@ function ProfileForm({ initialName, initialEmail, initialAge }) {
               name="name"
               value={name}
               onChange={handleChange}
-              isInvalid={!!errors.name}
+              onBlur={handleBlur}
+              isInvalid={touched.name && !!errors.name}
             />
             <Form.Control.Feedback type="invalid">
               {errors.name}
@@ -97,7 +103,8 @@ function ProfileForm({ initialName, initialEmail, initialAge }) {
               name="email"
               value={email}
               onChange={handleChange}
-              isInvalid={!!errors.email}
+              onBlur={handleBlur}
+              isInvalid={touched.email && !!errors.email}
             />
             <Form.Control.Feedback type="invalid">
               {errors.email}
@@ -111,7 +118,8 @@ function ProfileForm({ initialName, initialEmail, initialAge }) {
               name="age"
               value={age}
               onChange={handleChange}
-              isInvalid={!!errors.age}
+              onBlur={handleBlur}
+              isInvalid={touched.age && !!errors.age}
             />
             <Form.Control.Feedback type="invalid">
               {errors.age}
@@ -130,7 +138,7 @@ function ProfileForm({ initialName, initialEmail, initialAge }) {
       </Container>
 
       {showToast && (
-        <div className="position-fixed bottom-0 end-0 p-3">
+        <div className="toast-container position-fixed bottom-0 end-0 p-3">
           <div
             className="toast show align-items-center text-bg-primary border-0"
             role="alert"
