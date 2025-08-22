@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { Modal, Button } from "react-bootstrap";
+import "../App.css";
 
-const Cart = () => {
+const Cart = ({ darkMode }) => {
   const { cartItems, removeFromCart, clearCart } = useContext(CartContext);
   const [showConfirm, setShowConfirm] = useState(false);
   const [showToast, setShowToast] = useState(false);
-
   const handleConfirm = () => setShowConfirm(true);
   const handleCloseConfirm = () => setShowConfirm(false);
 
@@ -19,31 +19,59 @@ const Cart = () => {
 
   return (
     <div className="cart">
-      <h2>Giỏ hàng</h2>
-      {cartItems.length === 0 ? (
-        <p>Giỏ hàng trống.</p>
-      ) : (
-        <ul>
-          {cartItems.map((item) => (
-            <li key={item.id} className="my-2">
-              {item.name} - {item.price}$
-              <Button
-                variant="danger"
-                size="sm"
-                className="ms-2"
-                onClick={() => removeFromCart(item.id)}
-              >
-                Xóa
-              </Button>
-            </li>
-          ))}
-        </ul>
-      )}
-      <div className="d-flex gap-2 mt-3">
+      <h2 className="text-center">Giỏ hàng</h2>
+      <div className="d-flex justify-content-end align-items-center mb-4 mx-5">
+        <Button variant="danger" size="sm" onClick={() => clearCart()}>
+          Làm trống giỏ hàng
+        </Button>
+      </div>
+
+      <table
+        className={`table table-bordered w-80 mx-auto ${
+          darkMode ? "dark-mode" : ""
+        }`}
+      >
+        <thead>
+          <tr>
+            <th className="text-center">Tên món</th>
+            <th className="text-center">Giá</th>
+            <th className="text-center">Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cartItems.length === 0 ? (
+            <tr>
+              <td colSpan={3} className="text-center">
+                Giỏ hàng trống.
+              </td>
+            </tr>
+          ) : (
+            <>
+              {cartItems.map((item) => (
+                <tr key={item.cartId}>
+                  <td>{item.name}</td>
+                  <td className="text-center">{item.price}$</td>
+                  <td className="text-center">
+                    <Button
+                      variant="danger"
+                      size="sm"
+                      onClick={() => removeFromCart(item.cartId)}
+                    >
+                      Xóa
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </>
+          )}
+        </tbody>
+      </table>
+      <div className="d-flex justify-content-end mt-3 mx-5">
         <Button
           variant="warning"
           onClick={handleConfirm}
           disabled={cartItems.length === 0}
+          className="mt-1"
         >
           Xác nhận đơn hàng
         </Button>

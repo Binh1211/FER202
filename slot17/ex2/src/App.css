@@ -1,3 +1,8 @@
+.cart table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
 .dishes {
   display: flex;
   flex-wrap: wrap;
@@ -72,3 +77,31 @@
   background-color: #198754 !important;
   color: #fff !important;
 }
+
+.table.dark-mode {
+  background-color: #222;
+  color: #f1f1f1;
+  border-color: #f1f1f1;
+}
+.table.dark-mode th,
+.table.dark-mode td {
+  background-color: #333;
+  color: #f1f1f1;
+  border-color: #f1f1f1;
+}
+.table.dark-mode p {
+  background-color: #444;
+  color: #f1f1f1;
+}
+
+.dark-mode .card .btn {
+  background-color: #444;
+  color: #f1f1f1 !important;
+  border-color: #666 !important;
+}
+
+.dark-mode .card .btn:hover {
+  background-color: #f1f1f1 !important;
+  color: #444 !important;
+}
+

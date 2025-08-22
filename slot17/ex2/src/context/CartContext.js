@@ -9,12 +9,17 @@ export const CartProvider = ({ children }) => {
 
   // Hàm thêm sản phẩm vào giỏ hàng
   const addToCart = (dish) => {
-    setCartItems((prevItems) => [...prevItems, dish]);
+    const uniqueDish = {
+      ...dish,
+      cartId: Math.random().toString(36).substr(2, 9) + Date.now(),
+    };
+    setCartItems((prevItems) => [...prevItems, uniqueDish]);
   };
 
-  // Hàm xóa sản phẩm khỏi giỏ hàng
-  const removeFromCart = (id) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  const removeFromCart = (cartId) => {
+    setCartItems((prevItems) =>
+      prevItems.filter((item) => item.cartId !== cartId)
+    );
   };
 
   // Hàm xóa tất cả sản phẩm trong giỏ hàng

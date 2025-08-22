@@ -59,8 +59,8 @@ function App() {
           </button>
         </div>
         <Search search={search} setSearch={setSearch} />
-        <DishesList dishes={filteredDishes} />
-        <Cart />
+        <DishesList darkMode={darkMode} dishes={filteredDishes} />
+        <Cart darkMode={darkMode} />
       </div>
     </CartProvider>
   );

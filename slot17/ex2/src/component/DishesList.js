@@ -3,7 +3,7 @@ import { CartContext } from "../context/CartContext";
 import PropTypes from "prop-types";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
-const DishesList = ({ dishes }) => {
+const DishesList = ({ dishes, darkMode }) => {
   const { addToCart } = useContext(CartContext);
 
   return (
@@ -28,7 +28,7 @@ const DishesList = ({ dishes }) => {
                 <Button
                   variant="primary"
                   onClick={() => addToCart(dish)}
-                  className="mt-auto"
+                  className={`mt-auto ${darkMode ? "darkMode" : ""}`}
                 >
                   Add to Cart
                 </Button>
