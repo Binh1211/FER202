@@ -1,0 +1,74 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin",
+      "name": "Administrator",
+      "email": "admin@example.com",
+      "wishlist": [
+        "2"
+      ],
+      "cart": [],
+      "role": "admin",
+      "avatar": "",
+      "secretQuestion": "pet",
+      "secretAnswer": "fluffy"
+    },
+    {
+      "id": "2",
+      "username": "janesmith",
+      "password": "456",
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "wishlist": [],
+      "cart": [],
+      "role": "user",
+      "avatar": "",
+      "secretQuestion": "school",
+      "secretAnswer": "green"
+    },
+    {
+      "id": "3",
+      "username": "alicejohnson",
+      "password": "789",
+      "name": "Alice Johnson",
+      "email": "alice.johnson@example.com",
+      "wishlist": [],
+      "cart": [],
+      "role": "user",
+      "avatar": "",
+      "secretQuestion": "city",
+      "secretAnswer": "newyork"
+    },
+    {
+      "id": "4",
+      "name": "Hoàng Công Bình",
+      "email": "ngaongao173@gmail.com",
+      "avatar": "data:image/jpeg;base64,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",
+      "username": "123",
+      "password": "123456",
+      "secretQuestion": "pet",
+      "secretAnswer": "lu",
+      "role": "user",
+      "wishlist": [
+        "5",
+        "2",
+        "1"
+      ],
+      "cart": []
+    },
+    {
+      "id": 5,
+      "name": "Hoàng Bình",
+      "email": "de180906hoangcongbinh@gmail.com",
+      "avatar": "data:image/jpeg;base64,UklGRgAGAABXRUJQVlA4IPQFAABQKQCdASrvAO8APp1Oo0ulpKOhpzM4YLATiWlu4WgkXmNwqF5F/tnZ7/hfP3qG+onLGZhYreQK8U2zsAH1Q4h+NjvTC+/0z5vvzb/N+wR/K/7v6VXr7/db2Uf1sHq75MKlkgHaaif6bxUgA39ixgKpVHzPITsNXTZSA39j6xPSK+HNf0+jleyADf2LXff7tol9hF1Syo+qrTIxgrcIy8QO4HtTrcuRrnDhMXgUWj6ukIKYCnLMLyoUFW9yR9pZ275KrARVNEhIVyRqrJTJhUu4OngUEpdyc824ki0Kl3BXS4fd6Jv3QBbd8PCt/fZEHeN3mMahbTCpd7Rvx8pu4f1Phx4JlKhUu+FbvWznW6pxSUYxUyZFx4WSUpPSU752EpEUbgQdJhUaHM0TupmanRcLLGjfsZwC/LeAqjWMhrtdCfp6CjRMAztwg39j/zXYHIrEAUgA/vzDCjLF35U2ezsoPin79IyJykPkneu3vvZCztH2alJG8aGrFngr8tu+87pL8HPC0x8GH8IIeJc3PEF1yF5vwi/HhRfY/Y8tFWL1RtPL3B3D8UnfDhbJIwS8G4D9VjrW6xCoHPRAgni7e8rNZ//sP3nG3h0j8xldMuJhQFi4qSzqMOHr6HPi011ZujIweOT61+VSkLdb/28qDEqPWBpQVlVcuXCdGHacL7IP3tlvhqNi+dLk+b3ZpwQT41Dubfeezx8pikylyfMrwBwKCvxgkpaiJXsQEpSiAlNmGALNQqxV5nDgXJWjhyeH0xIcvmCjKaqv3tmQs/y7GT0BWYJ/6sKjPRtJj1lE3Qnvi4oUe56zrC1WbPxdElV+hb4UChMZ5ZKN2MVWv0uNjI+wvwDGB3n/G9kg1abGT+BAocv8KHUhRn8u0TvpIT6e8HTafWctpFOMxuR1Q7dSQ1D3kNhiaCS/RP9zrm9ngNBHj9oeN6OnnNc0vIEx7ChBGjC5bDdoEVGwUkhlTKPk0u+FGhCuNq3ildz30/kp+J98cKztn/YNRKO21jVW+tJMsOM2DPojq3k8J9QKlBy3O+jW6XW3jfN6wuzy1hYbcG/5qaX6UTYyJJRV3w0ExlH/M+ijaUP8Gzo1LjKZzAEB5M7sX55MlIUJc1IqDu7cyN0Dj9p7emLiy6ZIUuDzzqunQycGbTn4LvrTyIZFFWngNMmwhFiVB2GfhvK9vWBBVv8qOmwebomib1tzM6Cy2LiV9jrjbUhASiATxnnMyOaRYNAphGiabu6Dh2wcnvmtELnXC5fjogifHu3e65cgzc3awkgJK3jWLZ7AOXE2/OI1a8vq5R3IlozlpbvfD/4mKxa99WpQKQJzsWV3lb74ttA+t89nA/Bl0VXWwuGrRAGWwErGyrKaCwg5DI9BCD0l9M0jqjx1rB4PCugaAqzVQ9cWXKqPIDaNu32mMN7BErKZct1LqZ/XSr535p+c7fFJVqJPk83mXBF35blkE/rrS7wAXOumdUx55CJQgQpZCXPyTuj5iW8eLlPsIdpaKyZhpJSY51N0rnPNcGTgdfdcND8YzQ6hKx0RKCK5IKEPHX6djsQ9QxdBPFXYOKVm/DnQ7TmEGV0q01mx9ZJ2H0ges/VuKK7Vc22eETiLXS/iaxrbWNL0wY+KC2xZbPK5SVB2XLUDluIm5nXDi1d0WereaYOmQzVrF2+Glfs7tFgG2VfSp+InEdhQUoznmpZSZ5C3cpB5dYKL6pSBtXhp7/eSj5i4IqTmF4LBZ5TcSkAI6y1J9sXzIJJOJhGQTTMAu7G2sV4X7xgH9aCs4PEkk++fBzTkITNlxmXLiTHCT0cJpyfoZPcm4WHP+qf246n5WOOLsN2GgkM+BQDl6LOqHN+n5kNg6JaYLzxVBwuqiTGhVREV41ayLGelPu8NDx24XhMSziEaItq8IXiwZTFXz8Gpb38Pqx8akfdAzPCxbyorYrFBUeIaKjLO1oWe0chDQdmNjmMfn2EBDmung+cD5pp7MBBEYYDMkb9QOZ+MxA3RFmtcanXmCvXKhw5mIUu+K0pfg9M3nrQAAAA=",
+      "username": "abc",
+      "password": "123456",
+      "secretQuestion": "pet",
+      "secretAnswer": "lu",
+      "role": "user",
+      "wishlist": []
+    }
+  ]
+}
